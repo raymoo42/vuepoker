@@ -46,7 +46,6 @@ export default {
   display: grid;
 
   grid-template-columns: 3fr 1fr;
-  grid-template-rows: 2rem 1fr 2rem;
 
   grid-gap: 40px;
 }
@@ -58,12 +57,11 @@ export default {
   align-items: center;
 
   background: #866a99;
-  padding: 0px 20px;
+  padding: 1rem;
   border-radius: 10px 10px;
 
   color: #f3f5f9;
   width: 100%;
-  height: 3rem;
 }
 
 .card--box {
