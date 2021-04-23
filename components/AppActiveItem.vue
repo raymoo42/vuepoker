@@ -46,6 +46,7 @@ export default {
   display: grid;
 
   grid-template-columns: 3fr 1fr;
+  grid-template-rows: minmax(2rem, auto) 1fr minmax(2rem, auto);
 
   grid-gap: 40px;
 }
@@ -53,11 +54,12 @@ export default {
 .heading {
   grid-column-start: span 2;
   display: flex;
+  flex-grow: 1;
   justify-content: space-between;
   align-items: center;
 
   background: #866a99;
-  padding: 1rem;
+  padding: 1rem 2rem;
   border-radius: 10px 10px;
 
   color: #f3f5f9;
@@ -72,9 +74,9 @@ export default {
 }
 
 .content {
-    display: grid;
+  display: grid;
 
-    gap: 20px;
+  gap: 20px;
 }
 
 .users {
