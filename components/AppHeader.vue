@@ -39,7 +39,7 @@ export default {};
 
     box-shadow: #f3f5f9 0px 0px 10px 10px;
 
-    clip-path: inset(-100px -100px 42px -1000px);
+    clip-path: inset(-100px -100px 46px -1000px);
 }
 
 .header--logo {

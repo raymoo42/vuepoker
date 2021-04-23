@@ -1,11 +1,29 @@
 <template>
   <div class="container">
-    <h1>Stuuff</h1>
+    <section class="content">
+      <app-active-item />
+    </section>
   </div>
 </template>
 
 <script>
-export default {};
+import AppActiveItem from "../components/AppActiveItem.vue";
+export default {
+  components: { AppActiveItem },
+};
 </script>
 
-<style scoped></style>
+<style scoped>
+.content {
+  width: 80vw;
+  min-height: 50vh;
+
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: 2;
+  justify-items: center;
+
+  background: rgba(246, 246, 250, 0.8);
+}
+</style>
