@@ -8,34 +8,34 @@
 
 <script>
 import AppActiveItem from "../components/AppActiveItem.vue";
-import Pusher from 'pusher-js';
+import Pusher from "pusher-js";
 
 export default {
   components: { AppActiveItem },
-  created() {
+  mounted() {
     // Pusher.logToConsole = true;
 
     const pusher = new Pusher(process.env.pusherAppKey, {
       cluster: process.env.pusherCluster,
     });
     this.pusher = pusher;
-    
-    const channel = pusher.subscribe('channel-id-here');
-    channel.bind('message', function(data) {
-      console.log(data);
+
+    const channel = pusher.subscribe("channel-id-here");
+    channel.bind("message", function(data) {
+      this.$store.commit("updateCurrentItem", data);
     });
   },
-  destroyed() {
+  beforeDestroy() {
     if (this.pusher) {
-      this.pusher.unsubscribe('channel-id-here');
+      this.pusher.unsubscribe("channel-id-here");
       this.pusher.disconnect();
     }
   },
   data() {
     return {
-      pusher: undefined
-    }
-  }
+      pusher: undefined,
+    };
+  },
 };
 </script>
 

@@ -1,19 +1,19 @@
 <template>
   <section class="card">
     <div class="heading">
-      <h2>{{ title }}</h2>
+      <h2>{{ currentItem.title }}</h2>
       <b>X</b>
     </div>
     <div class="content card--box">
-      <h4>A Description of what we wanna do and stuff</h4>
+      <h4>{{ currentItem.description }}</h4>
       <section>
         Here be the things we can select from:
       </section>
     </div>
     <div class="users card--box">
       <ul class="card--list">
-        <li v-for="user in currentUsers" :key="user.id">
-          <span>X</span> <span>{{ user.name }}</span>
+        <li v-for="vote in currentItem.votes" :key="vote.user">
+          <span>X</span> <span>{{ vote.user }}</span> <span>{{ vote.vote }}</span>
         </li>
       </ul>
     </div>
@@ -25,28 +25,16 @@
 </template>
 
 <script>
-
+import {mapState} from 'vuex';
 
 export default {
-  data() {
-    return {
-      currentUsers: [
-        {
-          id: "aasd",
-          name: "Ray",
-        },
-      ],
-      title: "Item 1 - My super special awesome title thing",
-    };
-  },
   methods: {
     sendTestEvent() {
-      fetch('/api/test')
-      .then(data => data.json())
-      .then(data => 
-        console.log(data)
-      )
+      this.$store.dispatch('sendTestEvent');
     }
+  },
+  computed: {
+    ...mapState(["currentItem"])
   }
 };
 </script>

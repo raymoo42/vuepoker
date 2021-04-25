@@ -1,3 +1,4 @@
+const uuid = require('uuid').v4;
 const Pusher = require("pusher");
 
 const pusher = new Pusher({
@@ -7,14 +8,23 @@ const pusher = new Pusher({
   cluster: process.env.pusher_cluster,
 });
 
+
 module.exports = async (req, res) => {
   console.log(pusher);
 
   const resp = await pusher.trigger("channel-id-here", "message", {
-    message: "hello world"
+    currentItem: {
+        id: uuid(),
+        title: `Sample Title - Task number ${Math.floor(Math.random() * 10000).toFixed(0)}`,
+        description: 'No Description provided',
+        votes: [
+            {user: uuid(), vote: 1},
+            {user: uuid(), vote: 2},
+            {user: uuid(), vote: 3},
+        ],
+        state: 'hidden'
+    }
   });
-
-  console.log("Repsonse", resp);
 
   res.json({
     body: req.body,
