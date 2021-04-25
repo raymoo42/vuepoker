@@ -7,14 +7,18 @@ const pusher = new Pusher({
   cluster: process.env.pusher_cluster,
 });
 
-module.exports = (req, res) => {
-  pusher.trigger("channel-id-here", "message", {
-    message: "hello world",
-  }).then(x => {
-    res.json({
-        body: req.body,
-        query: req.query,
-        cookies: req.cookies,
-      });
+module.exports = async (req, res) => {
+  console.log(pusher);
+
+  const resp = await pusher.trigger("channel-id-here", "message", {
+    message: "hello world"
+  });
+
+  console.log("Repsonse", resp);
+
+  res.json({
+    body: req.body,
+    query: req.query,
+    cookies: req.cookies,
   });
 };
