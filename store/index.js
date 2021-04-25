@@ -25,7 +25,7 @@ export const mutations = {
     state.connectedUsers = payload.users;
   },
   updateCurrentItem: (state, payload) => {
-    state.currentItem = Object.assign({}, payload);
+    state.currentItem = payload.currentItem;
   },
 };
 
@@ -34,7 +34,6 @@ export const actions = {
     fetch("/api/test")
       .then((data) => data.json())
       .then((data) => {
-        console.log(context, data);
       });
   },
 };

@@ -13,6 +13,7 @@ import Pusher from "pusher-js";
 export default {
   components: { AppActiveItem },
   mounted() {
+    const self = this;
     // Pusher.logToConsole = true;
 
     const pusher = new Pusher(process.env.pusherAppKey, {
@@ -22,7 +23,8 @@ export default {
 
     const channel = pusher.subscribe("channel-id-here");
     channel.bind("message", function(data) {
-      this.$store.commit("updateCurrentItem", data);
+
+      self.$store.commit("updateCurrentItem", data);
     });
   },
   beforeDestroy() {

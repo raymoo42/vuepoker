@@ -10,8 +10,6 @@ const pusher = new Pusher({
 
 
 module.exports = async (req, res) => {
-  console.log(pusher);
-
   const resp = await pusher.trigger("channel-id-here", "message", {
     currentItem: {
         id: uuid(),
