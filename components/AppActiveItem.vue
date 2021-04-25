@@ -42,7 +42,7 @@ export default {
   methods: {
     sendTestEvent() {
       fetch('/api/test')
-      .then(data => sta.json())
+      .then(data => data.json())
       .then(data => 
         console.log(data)
       )
