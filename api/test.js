@@ -6,7 +6,6 @@ module.exports = (req, res) => {
     key: process.env.pusher_key,
     secret: process.env.pusher_secret,
     cluster: process.env.pusher_cluster,
-    useTLS: true,
   });
 
   pusher.trigger('channel-id-here', 'message', {
