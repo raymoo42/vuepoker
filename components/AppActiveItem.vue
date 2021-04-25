@@ -19,11 +19,14 @@
     </div>
     <div class="actions">
       <button class="button--primary">Show Cards</button>
+      <button class="button--primary" @click="sendTestEvent()">Testing</button>
     </div>
   </section>
 </template>
 
 <script>
+
+
 export default {
   data() {
     return {
@@ -36,6 +39,15 @@ export default {
       title: "Item 1 - My super special awesome title thing",
     };
   },
+  methods: {
+    sendTestEvent() {
+      fetch('/api/test')
+      .then(data => sta.json())
+      .then(data => 
+        console.log(data)
+      )
+    }
+  }
 };
 </script>
 

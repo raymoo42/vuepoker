@@ -11,7 +11,9 @@
     "vercel": "vercel dev"
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "pusher": "^5.0.0",
+    "pusher-js": "^7.0.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.7",

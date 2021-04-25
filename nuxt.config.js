@@ -43,4 +43,8 @@ export default {
      */
     extend(config, ctx) {},
   },
+  env: {
+    pusherAppKey: process.env.pusher_key || '',
+    pusherCluster: process.env.pusher_cluster || 'eu'
+  }
 };
