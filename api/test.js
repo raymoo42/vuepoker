@@ -10,11 +10,11 @@ const pusher = new Pusher({
 module.exports = (req, res) => {
   pusher.trigger("channel-id-here", "message", {
     message: "hello world",
-  });
-
-  res.json({
-    body: req.body,
-    query: req.query,
-    cookies: req.cookies,
+  }).then(x => {
+    res.json({
+        body: req.body,
+        query: req.query,
+        cookies: req.cookies,
+      });
   });
 };
